@@ -23,6 +23,14 @@ def prompt():
     message['answer']= ask_question_to_pdf.ask_question_to_pdf(data)
     return message
 
+@app.route("/question", methods=["GET"])
+def question():
+    answer = ask_question_to_pdf.gpt3_completion("Pose moi une question sur le texte")
+    return ({"answer": answer})
+    # message = {}
+    # message["answer"] = ask_question_to_pdf.gpt3_completion("Pose moi une question sur le texte")
+    # return message
+
 #def prompt():
     #message={}
     #message ['answer'] = request.form['prompt'] + " double mooooonstre"

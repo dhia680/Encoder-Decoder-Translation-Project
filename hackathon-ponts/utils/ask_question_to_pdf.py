@@ -113,7 +113,4 @@ def verif(question,response,str=chunks):
             {"role": "user", "content": "est ce que ma réponse " + response + " convient avec : " + answer},
             ]
     )
-    print(a["choices"][0]["message"]["content"])
     return a["choices"][0]["message"]["content"]
-
-verif("en quelle année a été créée l'école","1747")

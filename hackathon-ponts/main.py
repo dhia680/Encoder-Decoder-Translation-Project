@@ -20,14 +20,13 @@ from flask import request
 def prompt():
     message = {}
     data = request.form['prompt']
-    message['answer']= ask_question_to_pdf.ask_question_to_pdf(data)
+    message['answer']= ask_question_to_pdf.gpt3_completion(data)
     return message
 
 @app.route("/question", methods=["GET"])
 def question():
-    message = {}
-    message["answer"] = ask_question_to_pdf.ask_question_to_pdf("Pose moi une question sur le texte")
-    return message
+    answer = ask_question_to_pdf.ask_question_to_pdf("Pose moi une question sur le texte")
+    return {"answer" : answer}
 
 #def prompt():
     #message={}

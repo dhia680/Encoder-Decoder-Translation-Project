@@ -28,15 +28,11 @@ def prompt():
 def question():
     q = ask_question_to_pdf.ask_question_to_pdf("Pose moi une question sur le texte")
     q_list.append(q)
-    return {"question" : q}
+    return {"answer" : q}
 
-@app.route("/reponse", methods=["POST"])
+@app.route("/answer", methods=["POST"])
 def reponse():
     r = request.form["prompt"]
-    r_list.append(r)
-    return {"reponse" : r}
+    answer = ask_question_to_pdf.verif(q_list[-1],r)
+    return {"answer" : answer}
 
-@app.route("/correct", methods=["GET"])
-def correct():
-    c = ask_question_to_pdf.verif(q_list[-1],r_list[-1])
-    return {"correct" : c}

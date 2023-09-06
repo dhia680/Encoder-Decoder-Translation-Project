@@ -4,6 +4,8 @@ from utils import ask_question_to_pdf
 app = Flask(__name__)
 
 
+q_list = []
+r_list = []
 @app.route("/hello/")
 def hello_world():
     return "<p>Hello, World!</p>"

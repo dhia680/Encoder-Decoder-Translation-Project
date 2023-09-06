@@ -6,6 +6,8 @@ app = Flask(__name__)
 
 q_list = []
 r_list = []
+
+
 @app.route("/hello/")
 def hello_world():
     return "<p>Hello, World!</p>"
@@ -16,7 +18,7 @@ from flask import render_template
 
 @app.route("/")
 def hello():
-    return render_template("index.html")
+    return render_template("index.html")  # , messages=messages)
 
 
 from flask import request
@@ -34,12 +36,11 @@ def prompt():
 def question():
     q = ask_question_to_pdf.ask_question_to_pdf("Pose moi une question sur le texte")
     q_list.append(q)
-    return {"answer" : q}
+    return {"answer": q}
+
 
 @app.route("/answer", methods=["POST"])
 def reponse():
     r = request.form["prompt"]
-    answer = ask_question_to_pdf.verif(q_list[-1],r)
-    return {"answer" : answer}
-
-
+    answer = ask_question_to_pdf.verif(q_list[-1], r)
+    return {"answer": answer}

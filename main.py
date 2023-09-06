@@ -36,9 +36,4 @@ def question():
     return {"answer": answer}
 
 
-# def prompt():
-# message={}
-# message ['answer'] = request.form['prompt'] + " double mooooonstre"
-# return message
-
-# HELLO TEST DE PUSH
+# kdb

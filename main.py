@@ -2,7 +2,8 @@ from flask import Flask
 from utils import ask_question_to_pdf
 
 app = Flask(__name__)
-
+q_list = []
+r_list = []
 @app.route("/hello/")
 def hello_world():
     return "<p>Hello, World!</p>"
@@ -25,10 +26,17 @@ def prompt():
 
 @app.route("/question", methods=["GET"])
 def question():
-    answer = ask_question_to_pdf.ask_question_to_pdf("Pose moi une question sur le texte")
-    return {"answer" : answer}
+    q = ask_question_to_pdf.ask_question_to_pdf("Pose moi une question sur le texte")
+    q_list.append(q)
+    return {"question" : q}
 
-#def prompt():
-    #message={}
-    #message ['answer'] = request.form['prompt'] + " double mooooonstre"
-    #return message
+@app.route("/reponse", methods=["POST"])
+def reponse():
+    r = request.form["prompt"]
+    r_list.append(r)
+    return {"reponse" : r}
+
+@app.route("/correct", methods=["GET"])
+def correct():
+    c = ask_question_to_pdf.verif(q_list[-1],r_list[-1])
+    return {"correct" : c}

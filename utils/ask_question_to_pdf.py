@@ -106,11 +106,14 @@ def ask_question_to_pdf(txt,str=chunks):
     return a["choices"][0]["message"]["content"]
 
 def verif(question,response,str=chunks):
-    answer = ask_question_to_pdf(question,chunks) #réponse donnée par chatgpt
     a = openai.ChatCompletion.create(
         model = "gpt-3.5-turbo",
         messages = [
-            {"role": "user", "content": "est ce que ma réponse " + response + " convient avec : " + answer},
+            {"role": "system", "content": chunks[0]},
+            {"role": "system", "content": "si ma réponse n'a pas de lien avec la question dis moi que j'ai tout faux"},
+            {"role" : "assistant" , "content" : question},
+            {"role" : "user" , "content" : response},
+            {"role": "user", "content": "est ce que ma réponse est correcte et sinon quelle était la bonne réponse"}
             ]
     )
     return a["choices"][0]["message"]["content"]

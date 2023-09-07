@@ -3,6 +3,8 @@ const submitButton = document.getElementById("submit-button");
 const questionButton = document.getElementById("question-button");
 const messagesContainer = document.getElementById("messages-container");
 const darkmodeButton = document.getElementById("darkmode-button");
+const historyButton = document.getElementById("history-button");
+const chatButton = document.getElementById("chat-button");
 const body = document.getElementById("body")
 mode = "light"
 
@@ -87,5 +89,19 @@ const handleDarkmodeClick = async (event) => {
   return;
 }
 
+const currentPath = window.location.pathname;
+
+const handleHistoryClick = () => {
+  if (currentPath !== '/chat-history') {
+    window.location.href = '/chat-history'; // Redirige vers l'URL '/chat-history'
+  }
+};
+
+const handleChatClick = () => {
+  window.location.href = '/'; // Redirige vers l'URL '/'
+};
+
 questionButton.addEventListener("click", handleQuestionClick);
 darkmodeButton.addEventListener("click", handleDarkmodeClick);
+historyButton.addEventListener("click", handleHistoryClick);
+chatButton.addEventListener("click", handleChatClick);

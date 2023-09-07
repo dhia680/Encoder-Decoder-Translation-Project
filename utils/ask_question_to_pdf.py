@@ -4,6 +4,7 @@ import fitz
 import openai
 from dotenv import load_dotenv
 from nltk.tokenize import sent_tokenize
+import aspose.words as aw
 
 load_dotenv()
 
@@ -90,12 +91,13 @@ def gpt3_completion(txt):
             {"role" : "user" , "content" : txt}
             ]
     )
-    print(a["choices"][0]["message"]["content"])
     return a["choices"][0]["message"]["content"]
 
 text = "Brahim le crétin est une légende de l'école des ponts"
 
-def ask_question_to_pdf(txt,str=chunks):
+def ask_question_to_pdf(txt,filename):
+    document = read_pdf(filename)
+    chunks = split_text(document)
     a = openai.ChatCompletion.create(
         model = "gpt-3.5-turbo",
         messages = [
@@ -105,7 +107,9 @@ def ask_question_to_pdf(txt,str=chunks):
     )
     return a["choices"][0]["message"]["content"]
 
-def verif(question,response,str=chunks):
+def verif(question,response,filename):
+    document = read_pdf(filename)
+    chunks = split_text(document)
     a = openai.ChatCompletion.create(
         model = "gpt-3.5-turbo",
         messages = [

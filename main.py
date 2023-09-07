@@ -64,7 +64,9 @@ def prompt():
 
 @app.route("/question", methods=["GET"])
 def question():
-    q = ask_question_to_pdf.ask_question_to_pdf("Pose moi une question sur le texte")
+    q = ask_question_to_pdf.ask_question_to_pdf(
+        "Pose moi une question sur le texte", ask_question_to_pdf.filename
+    )
     q_list.append(q)
     return {"answer": q}
 
@@ -72,5 +74,12 @@ def question():
 @app.route("/answer", methods=["POST"])
 def reponse():
     r = request.form["prompt"]
-    answer = ask_question_to_pdf.verif(q_list[-1], r)
+    answer = ask_question_to_pdf.verif(q_list[-1], r, ask_question_to_pdf.filename)
     return {"answer": answer}
+
+
+@app.route("/upload", methods=["POST"])
+def upload():
+    f = request.files["background"]
+    f.save("document.pdf")
+    return "file uploaded"

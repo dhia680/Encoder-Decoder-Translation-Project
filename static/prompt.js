@@ -6,7 +6,8 @@ const darkmodeButton = document.getElementById("darkmode-button");
 const historyButton = document.getElementById("history-button");
 const chatButton = document.getElementById("chat-button");
 const body = document.getElementById("body")
-mode = "light"
+const form = document.getElementById("form");
+mode = "light";
 
 const appendHumanMessage = (message) => {
   const humanMessageElement = document.createElement("div");
@@ -105,3 +106,14 @@ questionButton.addEventListener("click", handleQuestionClick);
 darkmodeButton.addEventListener("click", handleDarkmodeClick);
 historyButton.addEventListener("click", handleHistoryClick);
 chatButton.addEventListener("click", handleChatClick);
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  await fetch("/upload", {
+    method: "POST",
+    body: formData,
+  });
+  // On réinitialise le formulaire
+  form.reset();
+});

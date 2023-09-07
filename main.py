@@ -1,5 +1,6 @@
 from flask import Flask
 from utils import ask_question_to_pdf
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 

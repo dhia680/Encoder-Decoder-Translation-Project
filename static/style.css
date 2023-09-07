@@ -20,11 +20,19 @@ body {
 }
 
 body.darkmode {
-  --body-background-color: #2a303b;
-  --main-background-color: #2a303b;
+  --body-background-color: #ffffff;
+  --main-background-color: #308bf3;
   --main-color: #ffffff;
-  --border-color: #2a303b;
-  --secondary-color: #2a303b;
+  --border-color: #d18717;
+  --secondary-color: #d18717;
+}
+
+body.lightmode {
+  --body-background-color: #ffffff;
+  --main-background-color: #ffffff;
+  --main-color: #2a303b;
+  --border-color: #cccccc;
+  --secondary-color: #fff6d3;
 }
 
 .main-container {

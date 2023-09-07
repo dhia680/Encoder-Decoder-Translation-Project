@@ -3,8 +3,9 @@ const submitButton = document.getElementById("submit-button");
 const questionButton = document.getElementById("question-button");
 const messagesContainer = document.getElementById("messages-container");
 const darkmodeButton = document.getElementById("darkmode-button");
-const body = document.getElementById("body")
-mode = "light"
+const body = document.getElementById("body");
+const form = document.getElementById("form");
+mode = "light";
 
 const appendHumanMessage = (message) => {
   const humanMessageElement = document.createElement("div");
@@ -89,3 +90,14 @@ const handleDarkmodeClick = async (event) => {
 
 questionButton.addEventListener("click", handleQuestionClick);
 darkmodeButton.addEventListener("click", handleDarkmodeClick);
+
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  await fetch("/upload", {
+    method: "POST",
+    body: formData,
+  });
+  // On réinitialise le formulaire
+  form.reset();
+});

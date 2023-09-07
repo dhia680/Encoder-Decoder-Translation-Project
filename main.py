@@ -1,5 +1,6 @@
 from flask import Flask
-from utils import ask_question_to_pdf
+import ask_question_to_pdf
+import os
 
 app = Flask(__name__)
 q_list = []
@@ -39,5 +40,8 @@ def reponse():
 @app.route("/upload" , methods=["POST"])
 def upload():
     f = request.files["background"]
-    f.save("document.pdf")
+    f.save("filename.pdf")
     return "file uploaded"
+
+
+print(os.path.dirname("/templates/index.html"))

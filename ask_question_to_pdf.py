@@ -121,3 +121,10 @@ def verif(question,response,filename):
             ]
     )
     return a["choices"][0]["message"]["content"]
+
+def fichier_txt(path):
+    f= open_file(path, 'r') # Essai est mon fichier.txt que vous pouvez voir juste au dessus )
+    readlines =f.readlines()
+    f.close()
+    final_text = readlines.replace('\n', '')
+    return final_text

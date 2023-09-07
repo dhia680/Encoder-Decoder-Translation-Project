@@ -4,6 +4,7 @@ const questionButton = document.getElementById("question-button");
 const messagesContainer = document.getElementById("messages-container");
 const darkmodeButton = document.getElementById("darkmode-button");
 const body = document.getElementById("body")
+mode = "light"
 
 const appendHumanMessage = (message) => {
   const humanMessageElement = document.createElement("div");
@@ -73,7 +74,16 @@ const handleQuestionClick = async (event) => {
 };
 
 const handleDarkmodeClick = async (event) => {
-  body.classList.add("darkmode");
+  if (mode == "light") {
+    body.classList.remove("lightmode");
+    body.classList.add("darkmode");
+    mode = "dark";
+  }
+  else {
+    body.classList.remove("darkmode");
+    body.classList.add("lightmode");
+    mode = "light"
+  }
   return;
 }
 

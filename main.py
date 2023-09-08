@@ -64,8 +64,11 @@ def prompt():
 
 @app.route("/question", methods=["GET"])
 def question():
-    q = ask_question_to_pdf.ask_question_to_pdf("Pose moi une question au hasard sur le texte",ask_question_to_pdf.filename)
+    q = ask_question_to_pdf.ask_question_to_pdf(
+        "Pose moi une question au hasard sur le texte", ask_question_to_pdf.filename
+    )
     q_list.append(q)
+
     return {"answer": q}
 
 

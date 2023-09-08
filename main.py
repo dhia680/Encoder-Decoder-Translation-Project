@@ -1,6 +1,5 @@
 from flask import Flask
 import ask_question_to_pdf
-import os
 
 app = Flask(__name__)
 q_list = []
@@ -27,7 +26,7 @@ def prompt():
 
 @app.route("/question", methods=["GET"])
 def question():
-    q = ask_question_to_pdf.ask_question_to_pdf("Pose moi une question sur le texte",ask_question_to_pdf.filename)
+    q = ask_question_to_pdf.ask_question_to_pdf("Pose moi une question au hasard sur le texte",ask_question_to_pdf.filename)
     q_list.append(q)
     return {"answer" : q}
 
@@ -42,6 +41,3 @@ def upload():
     f = request.files["background"]
     f.save("filename.pdf")
     return "file uploaded"
-
-
-print(os.path.dirname("/templates/index.html"))

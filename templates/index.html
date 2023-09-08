@@ -12,6 +12,9 @@
     <header class="header">
       <h1 class="header-title">Mon A.I.de mémoire</h1>
       <button type="button" class="button" id="darkmode-button">Changer de couleur</button>
+      <button type="button" class="button" id="history-button">Historique des chats</button>
+      <button type="button" class="button" id="chat-button">Nouveau chat</button>
+
       <form id="form">
         <input type="file" name="background" />
         <button type="submit">Envoyer le document</button>
@@ -23,6 +26,7 @@
         Je suis ton AIssistant de cours personnel ! Pose-moi une question sur
         le cours et je te répondrai.
       </div>
+      
     </section>
 
     <form id="prompt-form" class="prompt-container">
@@ -35,7 +39,16 @@
       <button type="button" class="button" id="question-button">
         Pose-moi une question !
       </button>
+
     </form>
+
+      <!-- Ajoutez cette section pour afficher les anciens échanges -->
+    <section id="chat-history" class="messages-container">
+      {% for exchange in chat_history %}
+      <div class="message message-human">{{ exchange.user_message }}</div>
+      <div class="message message-ai">{{ exchange.assistant_response }}</div>
+      {% endfor %}
+    </section>
 
     <script src="{{ url_for('static', filename='prompt.js') }}"></script>
   </main>

@@ -75,14 +75,14 @@ def question():
 @app.route("/answer", methods=["POST"])
 def reponse():
     r = request.form["prompt"]
-    if len(q_list) == 0:
-        answer = "Merci de reposer de nouveau votre question"
-    else:
-        answer = ask_question_to_pdf.verif(q_list[-1], r, ask_question_to_pdf.filename)
-        exchange = ChatExchange(user_message=q_list[-1], assistant_response=answer)
-        db.session.add(exchange)
-        db.session.commit()
-        return {"answer": answer}
+    answer = ask_question_to_pdf.verif(q_list[-1], r, ask_question_to_pdf.filename)
+    exchange = ChatExchange(
+        user_message=q_list[-1],
+        assistant_response="Ma réponse : " + r + "; Correction : " + answer,
+    )
+    db.session.add(exchange)
+    db.session.commit()
+    return {"answer": answer}
 
 
 @app.route("/upload", methods=["POST"])

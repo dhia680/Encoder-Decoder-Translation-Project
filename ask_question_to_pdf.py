@@ -83,48 +83,61 @@ filename = os.path.join(os.path.dirname(__file__), "filename.pdf")
 document = read_pdf(filename)
 chunks = split_text(document)
 
+
 def gpt3_completion(txt):
     a = openai.ChatCompletion.create(
-        model = "gpt-3.5-turbo",
-        messages = [
+        model="gpt-3.5-turbo",
+        messages=[
             {"role": "system", "content": "You are a helpful assistant."},
-            {"role" : "user" , "content" : txt}
-            ]
+            {"role": "user", "content": txt},
+        ],
     )
     return a["choices"][0]["message"]["content"]
+
 
 text = "Brahim le crétin est une légende de l'école des ponts"
 
-def ask_question_to_pdf(txt,filename):
+
+def ask_question_to_pdf(txt, filename):
     document = read_pdf(filename)
     chunks = split_text(document)
     a = openai.ChatCompletion.create(
-        model = "gpt-3.5-turbo",
-        messages = [
+        model="gpt-3.5-turbo",
+        messages=[
             {"role": "system", "content": chunks[0]},
-            {"role" : "user" , "content" : txt}
-            ]
+            {"role": "user", "content": txt},
+        ],
     )
     return a["choices"][0]["message"]["content"]
 
-def verif(question,response,filename):
+
+def verif(question, response, filename):
     document = read_pdf(filename)
     chunks = split_text(document)
     a = openai.ChatCompletion.create(
-        model = "gpt-3.5-turbo",
-        messages = [
+        model="gpt-3.5-turbo",
+        messages=[
             {"role": "system", "content": chunks[0]},
-            {"role": "system", "content": "si ma réponse n'a pas de lien avec la question dis moi que j'ai tout faux"},
-            {"role" : "assistant" , "content" : question},
-            {"role" : "user" , "content" : response},
-            {"role": "user", "content": "est ce que ma réponse est correcte et sinon quelle était la bonne réponse"}
-            ]
+            {
+                "role": "system",
+                "content": "si ma réponse n'a pas de lien avec la question dis moi que j'ai tout faux",
+            },
+            {"role": "assistant", "content": question},
+            {"role": "user", "content": response},
+            {
+                "role": "user",
+                "content": "est ce que ma réponse est correcte et sinon quelle était la bonne réponse",
+            },
+        ],
     )
     return a["choices"][0]["message"]["content"]
+
 
 def fichier_txt(path):
-    f= open_file(path, 'r') # Essai est mon fichier.txt que vous pouvez voir juste au dessus )
-    readlines =f.readlines()
+    f = open_file(
+        path, "r"
+    )  # Essai est mon fichier.txt que vous pouvez voir juste au dessus )
+    readlines = f.readlines()
     f.close()
-    final_text = readlines.replace('\n', '')
+    final_text = readlines.replace("\n", "")
     return final_text

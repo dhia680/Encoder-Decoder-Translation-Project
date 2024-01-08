@@ -1,7 +1,6 @@
-# Hackathon Ponts ENPC
+# TDLOG PROJECT : Developping a eng-fre Machine Translation Web Tool using LSTM based Seq2Seq Model
 
 ## Install
-
 - when opening VSCode, install the suggested extensions (Python, Black Formatter and Pylance)
 - create your python environment `python3 -m venv .venv`
 - copy the `.env.example` file to a `.env` file
@@ -15,6 +14,8 @@ The server should answer on http://localhost:5000
 You can deactivate the environment with `deactivate`.
 
 ## Adding librairies
-
 if you need to use a new librairies, you can do it with pip
 `pip install [library name]` or `pip3 install [library name]`
+
+
+# TDLOG-Project

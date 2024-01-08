@@ -1,5 +1,3 @@
 .env
 .venv
 __pycache__
-my_translation_model_gpu_v6.h5
-.gitattributes

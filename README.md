@@ -1,4 +1,4 @@
-# TDLOG PROJECT : Developping a eng-fre Machine Translation Web Tool using LSTM based Seq2Seq Model
+# An eng-fre Machine Translation Web Tool using LSTM based Seq2Seq Model (with Keras)
 
 ## Install
 - when opening VSCode, install the suggested extensions (Python, Black Formatter and Pylance)

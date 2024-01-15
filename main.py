@@ -1,16 +1,15 @@
 from flask import Flask
 import ask_question_to_pdf
-from flask_sqlalchemy import SQLAlchemy
+
+# from flask_sqlalchemy import SQLAlchemy
 from flask import request
 from flask import render_template
 
 
+# ##-----------------CODE POUR UN CHATBOT UTILISANT LES APIs DE GPT3
+# # (Faut adapter les fichier js et css)-----------------##
 
-
-##-----------------CODE POUR UN CHATBOT UTILISANT LES APIs DE GPT3 (Faut adapter les fichier js et css)-----------------##
 # app = Flask(__name__)
-
-
 # # create the extension
 # db = SQLAlchemy()
 # # create the app

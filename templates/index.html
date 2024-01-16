@@ -1,4 +1,37 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traducteur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="left-pane">
+            <label for="inputText">Phrase en anglais:</label>
+            <textarea id="inputText" placeholder="Entrez votre phrase en anglais"></textarea>
+            <button onclick="translate()">Traduire</button>
+        </div>
+        <div class="right-pane">
+            <label for="outputText">Phrase en français:</label>
+            <textarea id="outputText" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+{% comment %} <!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -54,4 +87,4 @@
   </main>
 </body>
 
-</html>
+</html> {% endcomment %}

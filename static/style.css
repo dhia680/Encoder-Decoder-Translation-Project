@@ -1,4 +1,76 @@
-:root {
+/* static/style.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.left-pane,
+.right-pane {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-pane {
+  width: 45%;
+}
+
+.right-pane {
+  width: 45%;
+}
+
+textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* :root {
   --body-background-color: #ffffff;
   --main-background-color: #ffffff;
   --main-color: #2a303b;
@@ -112,7 +184,7 @@ body.lightmode {
 }
 
 /* Loader code taken from https://loading.io/css/ */
-.loader {
+/* .loader {
   display: inline-block;
   position: relative;
   width: 80px;
@@ -177,4 +249,4 @@ body.lightmode {
   100% {
     transform: translate(calc(var(--loader-bullet-size) * 2), 0);
   }
-}
+} */

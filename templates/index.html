@@ -4,18 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traducteur</title>
+    <title>DeepTranslator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div class="header">
+        <h1>LSTM based Sequence to Sequence Model</h1>
+        <div class="subtitle">English → French</div>
+    </div>
     <div class="container">
         <div class="left-pane">
-            <label for="inputText">Phrase en anglais:</label>
-            <textarea id="inputText" placeholder="Entrez votre phrase en anglais"></textarea>
-            <button onclick="translate()">Traduire</button>
+            <form onsubmit="return translateForm()">
+                <label for="input_text">Phrase en Anglais:</label>
+                <textarea id="input_text" placeholder="Entrez votre phrase en anglais"></textarea>
+                <button type="submit">Traduire</button>
+            </form>
         </div>
         <div class="right-pane">
-            <label for="outputText">Phrase en français:</label>
+            <label for="outputText">Phrase en Français:</label>
             <textarea id="outputText" readonly></textarea>
         </div>
     </div>
@@ -24,67 +30,3 @@
 </body>
 </html>
 
-
-
-
-
-
-
-
-{% comment %} <!DOCTYPE html>
-<html lang="fr">
-
-<head>
-  <title>Mon A.I.de mémoire</title>
-
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-</head>
-
-<body id="body">
-  <main class="main-container">
-    <header class="header">
-      <h1 class="header-title">Mon A.I.de mémoire</h1>
-      <button type="button" class="button" id="darkmode-button">Changer de couleur</button>
-      <button type="button" class="button" id="history-button">Historique des chats</button>
-      <button type="button" class="button" id="chat-button">Nouveau chat</button>
-
-      <form id="form">
-        <input type="file" name="background" />
-        <button type="submit">Envoyer le document</button>
-      </form>
-    </header>
-
-    <section id="messages-container" class="messages-container">
-      <div class="message message-ai">
-        Je suis ton AIssistant de cours personnel ! Pose-moi une question sur
-        le cours et je te répondrai.
-      </div>
-      
-    </section>
-
-    <form id="prompt-form" class="prompt-container">
-      <label for="prompt" class="prompt-label">Message</label>
-
-      <input type="text" id="prompt" name="prompt" class="prompt-input" autocomplete="off" />
-
-      <button type="submit" class="button" id="submit-button">Envoyer</button>
-
-      <button type="button" class="button" id="question-button">
-        Pose-moi une question !
-      </button>
-
-    </form>
-
-      <!-- Ajoutez cette section pour afficher les anciens échanges -->
-    <section id="chat-history" class="messages-container">
-      {% for exchange in chat_history %}
-      <div class="message message-human">{{ exchange.user_message }}</div>
-      <div class="message message-ai">{{ exchange.assistant_response }}</div>
-      {% endfor %}
-    </section>
-
-    <script src="{{ url_for('static', filename='prompt.js') }}"></script>
-  </main>
-</body>
-
-</html> {% endcomment %}

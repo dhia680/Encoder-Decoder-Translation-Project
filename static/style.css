@@ -1,13 +1,31 @@
 /* static/style.css */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background: linear-gradient(to bottom, #6495ED, #87CEEB);
+  /* Graduations of blue background */
   margin: 0;
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  background-color: #333;
+}
+
+.header h1 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.2em;
 }
 
 .container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
 }
 
@@ -17,18 +35,14 @@ body {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.left-pane {
-  width: 45%;
-}
-
-.right-pane {
-  width: 45%;
+  margin-bottom: 20px;
+  width: 70%;
+  /* Adjust the width as needed */
 }
 
 textarea {
-  width: 100%;
+  width: calc(100% - 20px);
+  /* Adjust the width as needed */
   margin-bottom: 10px;
 }
 
@@ -43,9 +57,6 @@ button {
 button:hover {
   background-color: #45a049;
 }
-
-
-
 
 
 

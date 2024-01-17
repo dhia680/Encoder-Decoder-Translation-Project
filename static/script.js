@@ -1,6 +1,6 @@
 // static/script.js
-function translate() {
-  const inputText = document.getElementById('inputText').value;
+function translateForm() {
+  const inputText = document.getElementById('input_text').value;
 
   fetch('/translate', {
     method: 'POST',
@@ -14,4 +14,8 @@ function translate() {
       document.getElementById('outputText').value = data.translated_text;
     })
     .catch(error => console.error('Error:', error));
+
+  // Prevent the default form submission
+  return false;
 }
+

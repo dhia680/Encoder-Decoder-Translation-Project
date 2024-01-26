@@ -22,3 +22,5 @@ if you need to use new librairies, you can do it with pip
 - The provided python notebook contains data preprocessing and vectorization, model definition and training and inference.
 - The web interface is developed using python for backend and html/js/css for frontend.
 
+### Requirements :
+- Actually, not all the packages in the file requirements.txt are required for this project. This file will be soon updated.

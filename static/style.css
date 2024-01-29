@@ -2,7 +2,7 @@
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #6495ED, #87CEEB);
-  /* Graduations of blue background */
+
   margin: 0;
 }
 
@@ -37,12 +37,11 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   width: 70%;
-  /* Adjust the width as needed */
 }
 
 textarea {
   width: calc(100% - 20px);
-  /* Adjust the width as needed */
+
   margin-bottom: 10px;
 }
 

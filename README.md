@@ -19,7 +19,7 @@ if you need to use new librairies, you can do it with pip
 ## The Project
 - This is an academic project in the context of a "introduction to software development" course at Ecole des Ponts.
 - The dataset exists in the folder Dataset and was taken from Kaggle open datasets.
-- The provided python notebook contains data preprocessing and vectorization, model definition and training and inference.
+- The provided python notebook contains data preprocessing and vectorization, model definition and training and inference. It's the main part of the project.
 - The web interface is developed using python for backend and html/js/css for frontend.
 
 ### Requirements :

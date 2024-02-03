@@ -4,3 +4,5 @@ __pycache__
 tdlog-env
 .env.example
 .vscode
+.flake8
+requirements

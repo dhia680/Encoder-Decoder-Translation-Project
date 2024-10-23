@@ -3,7 +3,7 @@
 ### Install
 - when opening VSCode, install the suggested extensions (Python, Black Formatter and Pylance)
 - create your python environment `python3 -m venv .venv`. Make sure to have a python version that tensorflow supports (ex. 3.11.4)
-- Use Gitbush terminal
+- Use Gitbash terminal
 - activate your environment with `source activate path\to\activation\file`
 - run the server with `python app.py`
 
@@ -24,3 +24,8 @@ if you need to use new librairies, you can do it with pip
 
 ### Requirements :
 - Actually, not all the packages in the file requirements.txt are required for this project. This file will be soon updated.
+
+### N.B:
+This is my 1st NLP project. So it means something to me.
+It was trained on a single T4 GPU for less than 1h, on a vocabulary size of around 10K and a maximum sequence length of 20.
+Hence, you shouldn't expect it to perform very well 😁.

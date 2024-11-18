@@ -26,6 +26,7 @@ If you need to use new librairies, you can do it with pip
 - Actually, not all the packages in the file requirements.txt are required for this project. This file will be soon updated.
 
 ### N.B:
-This is my 1st NLP project. So it means something to me.
-It was trained on a single T4 GPU for less than 1h, on a vocabulary size of around 10K and a maximum sequence length of 20.
-Hence, you shouldn't expect it to perform very well 😁.
+This is my 1st NLP project. So it means something to me. <br>
+It was trained on a single T4 GPU for less than 1h, on a vocabulary size of around 10K and a maximum sequence length of 20. <br>
+Hence, you shouldn't expect it to perform very well eventhough it showed descent results 😁. <br>
+I will add a transformer-based new version and scale compute and data budget.
